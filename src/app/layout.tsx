@@ -8,8 +8,8 @@ import { AuthProvider } from "@/components/Web3";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tonano",
-  description: "Tonano Wallet",
+  title: "Optimism",
+  description: "Metamask Wallet",
 };
 
 export default function RootLayout({

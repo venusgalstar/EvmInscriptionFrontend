@@ -144,16 +144,16 @@ export default function InscribeForm() {
   return (
     <div className="flex flex-col items-center justify-center py-[40px]">
       <div className="text-[24px] mb-4 text-[#f6ae2d] font-bold line-[12px] tracking-widest">
-        Tonano Inscribe TON-20
+        Optimization Inscribe OPC-20
       </div>
       <div className="text-[14px] mb-8 text-[#ffffff73] tracking-widest">
         <a
-          href="https://docs.tonano.io/"
+          href="https://docs.optimism.io/"
           target="_blank"
           rel="noopener noreferrer"
           className="underline decoration-2 underline-offset-4"
         >
-          Read more details about ton-20
+          Read more details about opc-20
         </a>
       </div>
 
@@ -240,7 +240,7 @@ export default function InscribeForm() {
             </StyledButton>
             <Link href="/getton" passHref legacyBehavior>
               <a className="text-[#ffffff73] text-sm mt-4 block text-center tracking-widest underline decoration-2 underline-offset-4">
-                How to get TON for sending transaction?
+                How to get OP for sending transaction?
               </a>
             </Link>
           </form>

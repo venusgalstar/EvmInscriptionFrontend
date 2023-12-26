@@ -1,8 +1,9 @@
 "use client";
-import { FaWallet, FaCircle } from 'react-icons/fa';
+import { FaWallet } from 'react-icons/fa';
 import Link from 'next/link';
 import { AuthContext, useWeb3Context } from './Web3';
-
+import logo from '../assets/logo.png'
+import Image from 'next/image';
 export default function Navbar() {
   console.log("useWeb3Context", useWeb3Context);
   console.log("AuthContext", AuthContext);
@@ -19,8 +20,9 @@ export default function Navbar() {
     <nav className="text-white px-4 py-4 flex justify-between items-center">
       <div className="flex space-x-4 text-[14px] items-center">
         <div className='flex items-center justify-center'>
-          <FaCircle className='text-blue-500 mr-2' size={40} />
-          <h1 className='text-[20px]'>Tonano</h1>
+          {/* <FaCircle className='text-blue-500 mr-2' size={40} /> */}
+          <Image src={logo} alt='logo' className='mr-2' width={40} height={40}/>
+          <h1 className='text-[20px]'>Optimism</h1>
         </div>
         <Link href="/" passHref legacyBehavior>
           <a className="hover:bg-gray-100 hover:bg-opacity-25 transition-colors p-2 rounded">Home</a>
@@ -28,8 +30,8 @@ export default function Navbar() {
         <Link href="/inscribe" passHref legacyBehavior>
           <a className="hover:bg-gray-100 hover:bg-opacity-25 transition-colors p-2 rounded">Inscribe</a>
         </Link>
-        <Link href="/ton20" passHref legacyBehavior>
-          <a className="hover:bg-gray-100 hover:bg-opacity-25 transition-colors p-2 rounded">ton-20</a>
+        <Link href="/opc20" passHref legacyBehavior>
+          <a className="hover:bg-gray-100 hover:bg-opacity-25 transition-colors p-2 rounded">opc-20</a>
         </Link>
         <Link href="/marketplace" passHref legacyBehavior>
           <a className="hover:bg-gray-100 hover:bg-opacity-25 transition-colors p-2 rounded">Marketplace</a>

@@ -21,6 +21,7 @@ import SearchBox from "@/components/SearchBox";
 
 const StyledPaper = styled(Paper)({
   marginTop: 32,
+  marginBottom: 32,
   backgroundColor: "#262323",
   borderRadius: "12px",
   color: "#fff",
@@ -143,7 +144,7 @@ const CustomTable = ({ rows }) => {
   return (
     <>
       <div className="capitalize text-[18px] mb-4 text-[#f6ae2d] text-center font-medium line-[12px] tracking-wider">
-        The full list of ton-20
+        The full list of opc-20
       </div>
 
       <div className="text-[12px] mb-8 text-[#ffffff73] tracking-widest font-normal text-center">
@@ -176,7 +177,7 @@ const CustomTable = ({ rows }) => {
   );
 };
 
-export default function Ton20() {
+export default function OPC20() {
   const rows = [
     {
       name: "nano",
