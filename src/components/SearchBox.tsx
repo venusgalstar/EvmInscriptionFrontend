@@ -1,9 +1,11 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useState } from "react";
 import SearchButton from "./SearchButton";
 
 const SearchBox: FC<{
-    children?: ReactNode
-}> = ({ children }) => {
+  children?: ReactNode;
+  setData?: Function;
+}> = ({ children, setData }) => {
+  
   return (
     <div className="flex flex-col items-center justify-center px-[16px] py-[80x] mt-[80px]">
       <div className="text-[24px] mb-4 text-[#f6ae2d] font-bold line-[12px] tracking-widest">
@@ -20,7 +22,7 @@ const SearchBox: FC<{
         </a>
       </div>
 
-      <SearchButton />
+      <SearchButton setData={setData} />
 
       {children}
     </div>

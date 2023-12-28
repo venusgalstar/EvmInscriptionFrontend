@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import numeral from "numeral";
 import { styled } from "@mui/material/styles";
@@ -18,6 +18,9 @@ import {
 import { IoIosArrowForward } from "react-icons/io";
 
 import SearchBox from "@/components/SearchBox";
+
+const axios = require("axios");
+const { API_URL } = require("../../utils/constants");
 
 const StyledPaper = styled(Paper)({
   marginTop: 32,
@@ -58,6 +61,8 @@ const StyledHead = styled(TableHead)(({ theme }) => ({
 const StyledRow = styled(TableRow)(({ theme }) => ({
   backgroundColor: "transparent",
   color: "#fff",
+  cursor: 'pointer',
+  
 }));
 
 const StyledCell = styled(TableCell)(({ theme }) => ({
@@ -97,20 +102,33 @@ const TableHeader = () => (
 );
 
 const TableRowComponent = ({ row }) => (
-  <StyledRow>
-    <StyledCell component="th" scope="col" style={{
-        color: "#f6ae2d"
-    }}>
-      {row.name}
+  <StyledRow
+    hover
+    sx={{
+      '&.MuiTableRow-root:hover':{
+        background: '#555252'
+      },
+    }}
+  >
+    <StyledCell
+      component="th"
+      scope="col"
+      style={{
+        color: "#f6ae2d",
+      }}
+    >
+      {row.token_name}
     </StyledCell>
     <StyledCell align="center" scope="col">
-      {dayjs(row.deployTime).format("YYYY/MM/DD HH:mm:ss")}
+      {dayjs(row.timestamp).format("YYYY/MM/DD HH:mm:ss")}
     </StyledCell>
     <StyledCell align="center" scope="col">
       <span className="mb-6">
-        {numeral(row.progress).divide(100).format("0.000%")}
+        {numeral(parseInt(row.mint) / parseInt(JSON.parse(row.meta).max))
+          .divide(100)
+          .format("0.000%")}
       </span>
-      <StyledLineBar variant="determinate" value={row.progress} />
+      <StyledLineBar variant="determinate" value={parseInt(row.mint) / parseInt(JSON.parse(row.meta).max)} />
     </StyledCell>
     <StyledCell align="right" scope="col">
       {numeral(row.holders).format("0,0")}
@@ -178,128 +196,26 @@ const CustomTable = ({ rows }) => {
 };
 
 export default function OPC20() {
-  const rows = [
-    {
-      name: "nano",
-      deployTime: "2023/12/01 13:29:26",
-      progress: 100,
-      holders: 31096,
-    },
-    {
-      name: "nano",
-      deployTime: "2023/12/01 13:29:26",
-      progress: 67.8,
-      holders: 31096,
-    },
-    {
-      name: "nano",
-      deployTime: "2023/12/01 13:29:26",
-      progress: 67.8,
-      holders: 31096,
-    },
-    {
-      name: "nano",
-      deployTime: "2023/12/01 13:29:26",
-      progress: 67.8,
-      holders: 31096,
-    },
-    {
-      name: "nano",
-      deployTime: "2023/12/01 13:29:26",
-      progress: 67.8,
-      holders: 31096,
-    },
-    {
-      name: "nano",
-      deployTime: "2023/12/01 13:29:26",
-      progress: 67.8,
-      holders: 31096,
-    },
-    {
-      name: "nano",
-      deployTime: "2023/12/01 13:29:26",
-      progress: 67.8,
-      holders: 31096,
-    },
-    {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-      {
-        name: "nano",
-        deployTime: "2023/12/01 13:29:26",
-        progress: 67.8,
-        holders: 31096,
-      },
-  ];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchOpc20List = async () => {
+      try {
+        const response = await axios.get(API_URL + `search`);
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (!data || data.length == 0) fetchOpc20List();
+  }, []);
 
   return (
-    <SearchBox>
+    <SearchBox setData={setData}>
       <StyledPaper>
         <StyledCard>
-          <CustomTable rows={rows} />
+          <CustomTable rows={data} />
         </StyledCard>
       </StyledPaper>
     </SearchBox>
