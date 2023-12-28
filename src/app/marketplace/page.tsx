@@ -193,7 +193,7 @@ const Marketplace = () => {
         <CustomTabPanel value={value} index={0}>
           <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {listed.map((item: any, index: number) => (
-              <ListedTabs items={item} coin={coin} />
+              <ListedTabs key={index} items={item} coin={coin} />
             ))}
           </div>
         </CustomTabPanel>
