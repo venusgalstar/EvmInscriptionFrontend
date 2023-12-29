@@ -89,7 +89,7 @@ const ListedTabs: React.FC<ListedTabsProps> = ({ coin, items }) => {
         <h3>{coin}</h3>
         <h2>{items.amount}</h2>
 
-        <p>{items.ton_per_nano}</p>
+        <div>{items.ton_per_nano}</div>
         <span>${items.price_per_ton}</span>
       </Box>
       <Box className="body">
@@ -278,14 +278,14 @@ function BasicModal({ setOpen, open, items, coin }) {
                   viewBox="0 0 24 24"
                   data-testid="CloseIcon"
                 >
-                  <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                  <divath d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></divath>
                 </svg>
               </button>
             </Box>
             <Box className="modal-content">
               <Box className="body">
                 <h5>{items.ton_quantity} TON</h5>
-                <span>˜ ${items.total_price}</span>
+                <span>ï¿½ ${items.total_price}</span>
                 <svg
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-knsg4b"
                   focusable="false"
@@ -293,50 +293,50 @@ function BasicModal({ setOpen, open, items, coin }) {
                   viewBox="0 0 24 24"
                   data-testid="ArrowDownwardIcon"
                 >
-                  <path d="m20 12-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"></path>
+                  <divath d="m20 12-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"></divath>
                 </svg>
                 <h4>
                   {items.amount} {coin}
                 </h4>
               </Box>
               <Box className="data-list">
-                <p>Seller</p>
-                <p>{items.seller}</p>
+                <div>Seller</div>
+                <div>{items.seller}</div>
               </Box>
               <Box className="data-list">
-                <p>Tick</p>
-                <p>{coin}</p>
+                <div>Tick</div>
+                <div>{coin}</div>
               </Box>
               <Box className="data-list">
-                <p>Price</p>
-                <p>
+                <div>Price</div>
+                <div>
                   <Image alt="ton-image" src={tomImg} /> 0.001118 TON
-                </p>
+                </div>
               </Box>
               <Box className="data-list">
-                <p>Amount</p>
-                <p> {items.amount} {coin}</p>
+                <div>Amount</div>
+                <div> {items.amount} {coin}</div>
               </Box>
               <Box className="data-list">
-                <p>Total Value</p>
-                <p>
+                <div>Total Value</div>
+                <div>
                   {" "}
                   <Image alt="ton-image" src={tomImg} /> {items.ton_quantity} TON
-                </p>
+                </div>
               </Box>
               <Box className="data-list">
-                <p>Gas fee</p>
-                <p>
+                <div>Gas fee</div>
+                <div>
                   {" "}
                   <Image alt="ton-image" src={tomImg} /> 0.1 TON
-                </p>
+                </div>
               </Box>
               <Box className="data-list">
-                <p>Total</p>
-                <p>
+                <div>Total</div>
+                <div>
                   {" "}
                   <Image alt="ton-image" src={tomImg} /> 111.9 TON
-                </p>
+                </div>
               </Box>
               <Button variant="contained">Connect Wallet</Button>
             </Box>

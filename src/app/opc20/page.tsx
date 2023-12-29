@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import dayjs from "dayjs";
 import numeral from "numeral";
 import { styled } from "@mui/material/styles";
 import {
@@ -15,6 +14,7 @@ import {
   TablePagination,
   Card,
 } from "@mui/material";
+import { format } from "date-fns";
 import { IoIosArrowForward } from "react-icons/io";
 
 import SearchBox from "@/components/SearchBox";
@@ -61,8 +61,7 @@ const StyledHead = styled(TableHead)(({ theme }) => ({
 const StyledRow = styled(TableRow)(({ theme }) => ({
   backgroundColor: "transparent",
   color: "#fff",
-  cursor: 'pointer',
-  
+  cursor: "pointer",
 }));
 
 const StyledCell = styled(TableCell)(({ theme }) => ({
@@ -101,12 +100,16 @@ const TableHeader = () => (
   </StyledHead>
 );
 
+const formatDate = (date) => {
+  return format(date, 'yyyy/MM/dd HH:mm:ss',);
+}
+
 const TableRowComponent = ({ row }) => (
   <StyledRow
     hover
     sx={{
-      '&.MuiTableRow-root:hover':{
-        background: '#555252'
+      "&.MuiTableRow-root:hover": {
+        background: "#555252",
       },
     }}
   >
@@ -120,7 +123,7 @@ const TableRowComponent = ({ row }) => (
       {row.token_name}
     </StyledCell>
     <StyledCell align="center" scope="col">
-      {dayjs(row.timestamp).format("YYYY/MM/DD HH:mm:ss")}
+      {formatDate(row.timestamp)}
     </StyledCell>
     <StyledCell align="center" scope="col">
       <span className="mb-6">
@@ -128,7 +131,10 @@ const TableRowComponent = ({ row }) => (
           .divide(100)
           .format("0.000%")}
       </span>
-      <StyledLineBar variant="determinate" value={parseInt(row.mint) / parseInt(JSON.parse(row.meta).max)} />
+      <StyledLineBar
+        variant="determinate"
+        value={parseInt(row.mint) / parseInt(JSON.parse(row.meta).max)}
+      />
     </StyledCell>
     <StyledCell align="right" scope="col">
       {numeral(row.holders).format("0,0")}
@@ -166,7 +172,7 @@ const CustomTable = ({ rows }) => {
       </div>
 
       <div className="text-[12px] mb-8 text-[#ffffff73] tracking-widest font-normal text-center">
-        Indexer progress: {dayjs().format("YYYY/MM/DD HH:mm:ss")}
+        Indexer progress: {formatDate(new Date())}
       </div>
 
       <StyledTableContainer>

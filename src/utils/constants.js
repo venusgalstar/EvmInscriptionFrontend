@@ -1,1 +1,1 @@
-export const API_URL = 'http://138.201.198.89:9000/';
+export const API_URL = 'https://app.goldstar.icu/api/';

@@ -22,6 +22,7 @@ export default function Navbar() {
         <div className='flex items-center justify-center'>
           {/* <FaCircle className='text-blue-500 mr-2' size={40} /> */}
           <Image src={logo} alt='logo' className='mr-2' width={40} height={40}/>
+          {/* <img alt='logo' src={logo} className='mr-2' width={40} height={40}/> */}
           <h1 className='text-[20px]'>Optimism</h1>
         </div>
         <Link href="/" passHref legacyBehavior>

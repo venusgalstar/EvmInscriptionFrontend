@@ -282,53 +282,53 @@ const Marketplace = () => {
                   </h5>
                   {/* --- Total Vol ---  */}
                   <div className="ml-8 text-center">
-                    <p className="m-0 font-normal text-base leading-1.5 whitespace-nowrap">
+                    <div className="m-0 font-normal text-base leading-1.5 whitespace-nowrap">
                       Total Vol
-                    </p>
-                    <p className="m-0 font-normal text-xs leading-1.43 whitespace-nowrap">
+                    </div>
+                    <div className="m-0 font-normal text-xs leading-1.43 whitespace-nowrap">
                       434,059.403 Ton
-                    </p>
+                    </div>
                     <span className="m-0 font-normal text-xs leading-1.66 text-[#939393] opacity-45 whitespace-nowrap">
-                      ˜ $941,908.904
+                      ï¿½ $941,908.904
                     </span>
                   </div>
                   <hr className="m-0 mx-4 flex-shrink-0 border-t border-r border-b border-opacity-25 border-white h-full" />
                   {/* --- Hour Vol ---  */}
                   <div className="  text-center">
-                    <p className="m-0 font-normal text-base leading-1.5 whitespace-nowrap">
+                    <div className="m-0 font-normal text-base leading-1.5 whitespace-nowrap">
                       24H Vol
-                    </p>
-                    <p className="m-0 font-normal text-xs leading-1.43 whitespace-nowrap">
+                    </div>
+                    <div className="m-0 font-normal text-xs leading-1.43 whitespace-nowrap">
                       31,431.885 TON
-                    </p>
+                    </div>
                     <span className="m-0 font-normal text-xs leading-1.66 text-[#939393] opacity-45 whitespace-nowrap">
-                      ˜ $68,207.19
+                      ï¿½ $68,207.19
                     </span>
                   </div>
                   <hr className="m-0 mx-4 flex-shrink-0 border-t border-r border-b border-opacity-25 border-white h-full" />
                   {/* ---Floor Price ---  */}
                   <div className="  text-center">
-                    <p className="m-0 font-normal text-base leading-1.5 whitespace-nowrap">
+                    <div className="m-0 font-normal text-base leading-1.5 whitespace-nowrap">
                       Floor Price
-                    </p>
-                    <p className="m-0 font-normal text-xs leading-1.43 whitespace-nowrap">
+                    </div>
+                    <div className="m-0 font-normal text-xs leading-1.43 whitespace-nowrap">
                       0.00155 TON
-                    </p>
+                    </div>
                     <span className="m-0 font-normal text-xs leading-1.66 text-[#939393] opacity-45 whitespace-nowrap">
-                      ˜ $0.0033635
+                      ï¿½ $0.0033635
                     </span>
                   </div>
                   <hr className="m-0 mx-4 flex-shrink-0 border-t border-r border-b border-opacity-25 border-white h-full" />
                   {/* ---Floor Price ---  */}
                   <div className="text-center pr-[24px]">
-                    <p className="m-0 font-normal text-base leading-1.5 whitespace-nowrap">
+                    <div className="m-0 font-normal text-base leading-1.5 whitespace-nowrap">
                       Market Cap
-                    </p>
-                    <p className="m-0 font-normal text-xs leading-1.43 whitespace-nowrap">
+                    </div>
+                    <div className="m-0 font-normal text-xs leading-1.43 whitespace-nowrap">
                       3,255,000 TON
-                    </p>
+                    </div>
                     <span className="m-0 font-normal text-xs leading-1.66 text-[#939393] opacity-45 whitespace-nowrap">
-                      ˜ $7,063,350
+                      ï¿½ $7,063,350
                     </span>
                   </div>
                 </div>
