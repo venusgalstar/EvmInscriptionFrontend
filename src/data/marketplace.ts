@@ -354,3 +354,338 @@ export const listed: listedInterface[] = [
     }
 ]
 
+// data.ts
+export interface ListedItem {
+  Tick: string;
+  Total_Value: string;
+  Price: string;
+  span:string;
+  Amounts: number;
+  Seller: string;
+  Buyer: string;
+  Hash: string;
+  Time: string; // Change the type to Date
+}
+
+export const listedd: ListedItem[] = [
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+  {
+    Tick: "nano",
+    Total_Value: "1.0575 TON",
+    Price: "0.001175TON",
+    span:"$0.00256",
+    Amounts: 500,
+    Seller: "UQBQ...oW5a",
+    Buyer: "UQDI...nwHa",
+    Hash: "5A2DF9...0D922B",
+    Time: "2023/12/28 19:23:48", // Convert timestamp to a Date object
+  },
+];
+
+  
