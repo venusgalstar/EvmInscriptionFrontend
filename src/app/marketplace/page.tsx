@@ -18,7 +18,7 @@ import {
 import ListedTabs from "@/components/marketplace/ListedTab";
 import { listed, listedd, ListedItem } from "@/data/marketplace"; // Import ListedItem interface
 import Activites from "@/components/marketplace/Activites";
-import Detail from "@/components/marketplace/Detail";
+import Detail from "@/components/opc20/Detail";
 
 interface TabPanelProps {
   children?: React.ReactNode;

@@ -19,6 +19,7 @@ import { format } from "date-fns";
 import { IoIosArrowForward } from "react-icons/io";
 
 import SearchBox from "@/components/SearchBox";
+import { useRouter } from "next/navigation";
 
 const axios = require("axios");
 const { API_URL } = require("../../utils/constants");
@@ -113,62 +114,72 @@ const formatDate = (date) => {
   return format(date, "yyyy/MM/dd HH:mm:ss");
 };
 
-const TableRowComponent = ({ row }) => (
-  <StyledRow
-    hover
-    sx={{
-      "&.MuiTableRow-root:hover": {
-        background: "#555252",
-      },
-    }}
-  >
-    <StyledCell
-      component="th"
-      scope="col"
-      style={{
-        color: "#f6ae2d",
+const TableRowComponent = ({ row }) => {
+
+  const router = useRouter();
+  const handleDetailPage = () => {
+    const serializedObject = encodeURIComponent(JSON.stringify(row));
+    router.push(`/detail?data=${JSON.stringify(serializedObject)}`);
+  };
+
+  return (
+    <StyledRow
+      hover
+      sx={{
+        "&.MuiTableRow-root:hover": {
+          background: "#555252",
+        },
       }}
+      onClick={handleDetailPage}
     >
-      {row.token_name}
-    </StyledCell>
-    <StyledCell align="center" scope="col">
-      {formatDate(row.timestamp)}
-    </StyledCell>
-    <StyledCell align="center" scope="col">
-      <span className="mb-6">
-        {numeral(parseInt(row.mint) / parseInt(JSON.parse(row.meta).max))
-          .divide(100)
-          .format("0.000%")}
-      </span>
-      <div className="flex items-center">
-        <StyledLineBar
-          variant="determinate"
-          value={parseInt(row.mint) / parseInt(JSON.parse(row.meta).max)}
-        />
-        <StyledLineBarLeft
-          variant="determinate"
-          value={
-            (parseInt(JSON.parse(row.meta).max) - parseInt(row.mint)) /
-            parseInt(JSON.parse(row.meta).max)
-          }
-        />
-      </div>
-    </StyledCell>
-    <StyledCell align="right" scope="col">
-      {numeral(row.holders).format("0,0")}
-    </StyledCell>
-    <StyledCell
-      align="right"
-      scope="col"
-      style={{
-        display: "flex",
-        alignItems: "flex-end",
-      }}
-    >
-      <IoIosArrowForward align="right" size={20} />
-    </StyledCell>
-  </StyledRow>
-);
+      <StyledCell
+        component="th"
+        scope="col"
+        style={{
+          color: "#f6ae2d",
+        }}
+      >
+        {row.token_name}
+      </StyledCell>
+      <StyledCell align="center" scope="col">
+        {formatDate(row.timestamp)}
+      </StyledCell>
+      <StyledCell align="center" scope="col">
+        <span className="mb-6">
+          {numeral(parseInt(row.mint) / parseInt(JSON.parse(row.meta).max))
+            .divide(100)
+            .format("0.000%")}
+        </span>
+        <div className="flex items-center">
+          <StyledLineBar
+            variant="determinate"
+            value={parseInt(row.mint) / parseInt(JSON.parse(row.meta).max)}
+          />
+          <StyledLineBarLeft
+            variant="determinate"
+            value={
+              (parseInt(JSON.parse(row.meta).max) - parseInt(row.mint)) /
+              parseInt(JSON.parse(row.meta).max)
+            }
+          />
+        </div>
+      </StyledCell>
+      <StyledCell align="right" scope="col">
+        {numeral(row.holders).format("0,0")}
+      </StyledCell>
+      <StyledCell
+        align="right"
+        scope="col"
+        style={{
+          display: "flex",
+          alignItems: "flex-end",
+        }}
+      >
+        <IoIosArrowForward align="right" size={20} />
+      </StyledCell>
+    </StyledRow>
+  );
+};
 
 const CustomTable = ({ rows }) => {
   const [page, setPage] = React.useState(0);
@@ -186,7 +197,7 @@ const CustomTable = ({ rows }) => {
   return (
     <>
       <Helmet>
-        <title>Your Page Title</title>
+        <title>OPC-20</title>
         {/* Other head elements */}
       </Helmet>
 

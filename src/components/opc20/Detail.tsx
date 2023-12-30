@@ -1,84 +1,91 @@
 "use client";
-import React, { useState } from 'react';
-import { styled } from '@mui/system';
-import { LinearProgress } from '@mui/material';
-import Stack from '@mui/material/Stack';
-import Pagination from '@mui/material/Pagination';
+import React, { useState } from "react";
+import { styled } from "@mui/system";
+import { LinearProgress } from "@mui/material";
+import Stack from "@mui/material/Stack";
+import Pagination from "@mui/material/Pagination";
+// import {  } from "next/router";
 
 const StyledProgressBar = styled(LinearProgress)(({ theme }) => ({
-  backgroundColor: 'transparent',
+  backgroundColor: "transparent",
   height: 8,
   borderRadius: 2,
   marginTop: 8,
   marginBottom: 8,
-  '.MuiLinearProgress-bar': {
-    backgroundColor: '#f6ae2d',
+  ".MuiLinearProgress-bar": {
+    backgroundColor: "#f6ae2d",
     borderRadius: 2,
     height: 5,
   },
 }));
 
 const StyledLineBar = styled(LinearProgress)(({ theme }) => ({
-  backgroundColor: 'transparent',
-  '.MuiLinearProgress-bar': {
-    backgroundColor: '#f6ae2d',
+  backgroundColor: "transparent",
+  ".MuiLinearProgress-bar": {
+    backgroundColor: "#f6ae2d",
     borderRadius: 2,
-    textAlign: 'center',
+    textAlign: "center",
   },
 }));
 
 const containerStyles = {
   fontFamily:
     '-apple-system, monospace, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-  border: '1px solid rgba(255, 255, 255, 0.12)',
-  overflow: 'hidden',
-  padding: '16px',
-  marginTop: '24px',
-  borderRadius: '12px',
-  fontSize: '16px',
+  border: "1px solid rgba(255, 255, 255, 0.12)",
+  overflow: "hidden",
+  padding: "16px",
+  marginTop: "24px",
+  borderRadius: "12px",
+  fontSize: "16px",
 };
 
 const tables = {
   fontFamily:
     '-apple-system, monospace, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-  border: '1px solid rgba(255, 255, 255, 0.12)',
-  overflow: 'hidden',
-  padding: '16px',
-  marginTop: '24px',
-  borderRadius: '12px',
-  fontSize: '16px',
+  border: "1px solid rgba(255, 255, 255, 0.12)",
+  overflow: "hidden",
+  padding: "16px",
+  marginTop: "24px",
+  borderRadius: "12px",
+  fontSize: "16px",
 };
 
 const MarketPlacePagination = styled(Pagination)({
-  backgroundColor: '#121212',
-  color: '#fff',
+  backgroundColor: "#121212",
+  color: "#fff",
 
   button: {
-    fontWeight: '400',
-    fontSize: '0.875rem',
-    lineHeight: '1.43',
-    borderRadius: '4px',
-    textAlign: 'center',
-    boxSizing: 'border-box',
-    minWidth: '32px',
-    height: '32px',
-    padding: '0px 6px',
-    margin: '0px 3px',
-    color: 'rgb(255, 255, 255)',
-    border: '1px solid rgba(255, 255, 255, 0.23)',
+    fontWeight: "400",
+    fontSize: "0.875rem",
+    lineHeight: "1.43",
+    borderRadius: "4px",
+    textAlign: "center",
+    boxSizing: "border-box",
+    minWidth: "32px",
+    height: "32px",
+    padding: "0px 6px",
+    margin: "0px 3px",
+    color: "rgb(255, 255, 255)",
+    border: "1px solid rgba(255, 255, 255, 0.23)",
   },
 
-  '.Mui-selected': {
-    backgroundColor: '#4B4B4B',
+  ".Mui-selected": {
+    backgroundColor: "#4B4B4B",
   },
 });
 
 const ITEMS_PER_PAGE = 10;
 
 function Detail() {
+  // const router = useRouter();
+
+  // const { data } = router.query;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handlePageChange = (event: React.ChangeEvent<unknown>, page: number) => {
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
     setCurrentPage(page);
   };
 
@@ -107,9 +114,10 @@ function Detail() {
     { rank: 19, address: "DEF90...567g19", percentage: 99, value: 432109 },
     { rank: 20, address: "12345...678g20", percentage: 100, value: 321098 },
   ]);
-  
 
-  const filterHolders = (condition: (holder: any, index: number) => boolean) => {
+  const filterHolders = (
+    condition: (holder: any, index: number) => boolean
+  ) => {
     return holders.filter(condition);
   };
 
@@ -134,46 +142,63 @@ function Detail() {
 
   return (
     <div>
-      <span className="m-0 font-sans text-5xl leading-tight text-yellow-400 font-bold">nano</span>
+      <span className="m-0 font-sans text-5xl leading-tight text-yellow-400 font-bold">
+        nano
+      </span>
       <div>
         <StyledProgressBar variant="determinate" value={100} />
       </div>
-      <span className="text-yellow-400 text-lg">Indexer progress: 2023/12/29 15:36:25</span>
+      <span className="text-yellow-400 text-lg">
+        Indexer progress: 2023/12/29 15:36:25
+      </span>
       <div style={containerStyles}>
-      <span className="text-gray-400">Inscription:</span>
-                <br />
-                <a className="m-10 text-blue-500 underline" href="2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631">2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631</a>
-                <br />
-                <span className="text-gray-400 mt-10">Total Supply:</span>
-                <br />
-                <span className="m-10">2,100,000,000</span>
-                <br />
-                <span className="text-gray-400 mt-10">Minted:</span>
-                <br />
-                <span className="m-10">2,100,000,000</span>
-                <br />
-                <span className="text-gray-400 mt-10">Limit per mint:</span>
-                <br />
-                <span className="m-10">100</span>
-                <br />
-                <span className="text-gray-400 mt-10">Deploy By:</span>
-                <br />
-                <a className="m-10 text-blue-500 underline" href="2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631">2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631</a>
-                <br />
-                <span className="text-gray-400 mt-10" >Deploy Time:</span>
-                <br />
-                <span className="m-10" >2023/11/30 21:29:26</span>
-                <br />
-                <span className="text-gray-400 mt-10" >Holders:</span>
-                <br />
-                <span className="m-10" >28,059</span>
-                <br />
-                <span className="text-gray-400 mt-10" >Minters:</span>
-                <br />
-                <span className="m-10">36,632</span>
+        <span className="text-gray-400">Inscription:</span>
+        <br />
+        <a
+          className="m-10 text-blue-500 underline"
+          href="2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631"
+        >
+          2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631
+        </a>
+        <br />
+        <span className="text-gray-400 mt-10">Total Supply:</span>
+        <br />
+        <span className="m-10">2,100,000,000</span>
+        <br />
+        <span className="text-gray-400 mt-10">Minted:</span>
+        <br />
+        <span className="m-10">2,100,000,000</span>
+        <br />
+        <span className="text-gray-400 mt-10">Limit per mint:</span>
+        <br />
+        <span className="m-10">100</span>
+        <br />
+        <span className="text-gray-400 mt-10">Deploy By:</span>
+        <br />
+        <a
+          className="m-10 text-blue-500 underline"
+          href="2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631"
+        >
+          2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631
+        </a>
+        <br />
+        <span className="text-gray-400 mt-10">Deploy Time:</span>
+        <br />
+        <span className="m-10">2023/11/30 21:29:26</span>
+        <br />
+        <span className="text-gray-400 mt-10">Holders:</span>
+        <br />
+        <span className="m-10">28,059</span>
+        <br />
+        <span className="text-gray-400 mt-10">Minters:</span>
+        <br />
+        <span className="m-10">36,632</span>
       </div>
       <div style={tables}>
-      <button className="bg-gray-700 p-3 rounded-md border border-solid border-gray-500"> Holder</button>
+        <button className="bg-gray-700 p-3 rounded-md border border-solid border-gray-500">
+          {" "}
+          Holder
+        </button>
         <table className="w-full mt-6 pl-2">
           <thead>
             <tr className="">
