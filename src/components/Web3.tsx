@@ -33,6 +33,7 @@ export const AuthProvider = ({ children }) => {
         if (typeof window !== 'undefined' && typeof window.ethereum !== 'undefined') {
             // We are in the browser and metamask is running.
             web3 = new Web3(window.ethereum);
+            console.log("web3", web3);
         } else {
             // We are on the server *OR* the user is not running metamask
             // const provider = new Web3.providers.HttpProvider(
@@ -41,10 +42,11 @@ export const AuthProvider = ({ children }) => {
             // web3 = new Web3(provider);
         }
 
-        const accounts = await web3.eth.getAccounts();
+        const accounts = await web3.eth.requestAccounts();
         const chain = await web3.eth.getChainId();
 
         console.log("accounts", accounts);
+        console.log("chain", chain);
 
         setAccount(accounts[0]);
         // setIsConnect(true);
