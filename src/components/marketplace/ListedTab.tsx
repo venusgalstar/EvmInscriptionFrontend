@@ -278,7 +278,7 @@ function BasicModal({ setOpen, open, items, coin }) {
                   viewBox="0 0 24 24"
                   data-testid="CloseIcon"
                 >
-                  <divath d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></divath>
+                  <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
                 </svg>
               </button>
             </Box>
@@ -293,7 +293,7 @@ function BasicModal({ setOpen, open, items, coin }) {
                   viewBox="0 0 24 24"
                   data-testid="ArrowDownwardIcon"
                 >
-                  <divath d="m20 12-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"></divath>
+                  <path d="m20 12-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"></path>
                 </svg>
                 <h4>
                   {items.amount} {coin}
