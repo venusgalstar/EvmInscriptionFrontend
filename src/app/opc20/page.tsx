@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import numeral from "numeral";
+import { Helmet } from "react-helmet";
 import { styled } from "@mui/material/styles";
 import {
   Table,
@@ -184,6 +185,11 @@ const CustomTable = ({ rows }) => {
 
   return (
     <>
+      <Helmet>
+        <title>Your Page Title</title>
+        {/* Other head elements */}
+      </Helmet>
+
       <div className="capitalize text-[18px] mb-4 text-[#f6ae2d] text-center font-medium line-[12px] tracking-wider">
         The full list of opc-20
       </div>

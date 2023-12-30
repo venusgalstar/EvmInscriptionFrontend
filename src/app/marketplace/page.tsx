@@ -18,6 +18,7 @@ import {
 import ListedTabs from "@/components/marketplace/ListedTab";
 import { listed, listedd, ListedItem } from "@/data/marketplace"; // Import ListedItem interface
 import Activites from "@/components/marketplace/Activites";
+import Detail from "@/components/marketplace/Detail";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -351,7 +352,7 @@ const Marketplace = () => {
           </Box>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          <center>No listing</center>
+          <Detail/>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
           <Activites />
