@@ -115,11 +115,10 @@ const formatDate = (date) => {
 };
 
 const TableRowComponent = ({ row }) => {
-
   const router = useRouter();
+
   const handleDetailPage = () => {
-    const serializedObject = encodeURIComponent(JSON.stringify(row));
-    router.push(`/detail?data=${JSON.stringify(serializedObject)}`);
+    router.push(`/detail?id=${row.id}`);
   };
 
   return (

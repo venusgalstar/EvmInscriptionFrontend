@@ -4,7 +4,7 @@ import { styled } from "@mui/system";
 import { LinearProgress } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Pagination from "@mui/material/Pagination";
-// import {  } from "next/router";
+import { useSearchParams } from "next/navigation";
 
 const StyledProgressBar = styled(LinearProgress)(({ theme }) => ({
   backgroundColor: "transparent",
@@ -77,9 +77,9 @@ const MarketPlacePagination = styled(Pagination)({
 const ITEMS_PER_PAGE = 10;
 
 function Detail() {
-  // const router = useRouter();
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
 
-  // const { data } = router.query;
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = (
