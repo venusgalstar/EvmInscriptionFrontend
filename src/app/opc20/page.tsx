@@ -82,14 +82,6 @@ const StyledLineBar = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-const StyledLineBarLeft = styled(LinearProgress)(({ theme }) => ({
-  backgroundColor: "transparent",
-  ".MuiLinearProgress-bar": {
-    backgroundColor: "#ff0000",
-    borderRadius: 2,
-  },
-}));
-
 const TableHeader = () => (
   <StyledHead>
     <StyledRow>
@@ -141,25 +133,18 @@ const TableRowComponent = ({ row }) => {
         {row.token_name}
       </StyledCell>
       <StyledCell align="center" scope="col">
-        {formatDate(row.timestamp)}
+        {row.timestamp}
       </StyledCell>
       <StyledCell align="center" scope="col">
         <span className="mb-6">
-          {numeral(parseInt(row.mint) / parseInt(JSON.parse(row.meta).max))
+          {numeral(row.mint / parseInt(row.meta?.max) || 0)
             .divide(100)
             .format("0.000%")}
         </span>
         <div className="flex items-center">
           <StyledLineBar
             variant="determinate"
-            value={parseInt(row.mint) / parseInt(JSON.parse(row.meta).max)}
-          />
-          <StyledLineBarLeft
-            variant="determinate"
-            value={
-              (parseInt(JSON.parse(row.meta).max) - parseInt(row.mint)) /
-              parseInt(JSON.parse(row.meta).max)
-            }
+            value={row.mint / parseInt(row.meta?.max) || 0}
           />
         </div>
       </StyledCell>

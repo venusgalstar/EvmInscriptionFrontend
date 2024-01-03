@@ -1,10 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/system";
 import { LinearProgress } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Pagination from "@mui/material/Pagination";
 import { useSearchParams } from "next/navigation";
+import { format } from "date-fns";
+import numeral from "numeral";
+const axios = require("axios");
+const { API_URL } = require("../../utils/constants");
 
 const StyledProgressBar = styled(LinearProgress)(({ theme }) => ({
   backgroundColor: "transparent",
@@ -80,7 +84,40 @@ function Detail() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [data, setData] = useState({
+    creator: "",
+    holders: [],
+    meta: {
+      p: "",
+      op: "",
+      tick: "",
+      max: "0",
+      lim: "0",
+    },
+    meta_type: 0,
+    mint: 0,
+    timestamp: format(new Date(), "yyyy/MM/dd HH:mm:ss"),
+    token_decimal: 0,
+    token_limit: 0,
+    token_name: "",
+    token_owner: "",
+    total_supply: 0,
+    type: 1,
+    inscription: "",
+    minters: 0,
+  });
+
+  const fetchDetailData = async () => {
+    try {
+      const response = await axios.get(API_URL + `detail?id=${id}`);
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (id) fetchDetailData();
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -89,53 +126,35 @@ function Detail() {
     setCurrentPage(page);
   };
 
-  const [holders, setHolders] = useState([
-    { rank: 1, address: "UQA6Z...DLHg1", percentage: 50, value: 24559402 },
-    { rank: 2, address: "XW3F8...HJFg2", percentage: 35, value: 19876543 },
-    { rank: 3, address: "PQ9R2...LKJg3", percentage: 20, value: 15345678 },
-    { rank: 4, address: "LM6O7...XYZg4", percentage: 15, value: 12098765 },
-    { rank: 5, address: "AB1CD...UVWg5", percentage: 10, value: 9876543 },
-    { rank: 6, address: "OP2QR...EFGg6", percentage: 5, value: 8765432 },
-    { rank: 7, address: "HI3JK...MNOg7", percentage: 2, value: 7654321 },
-    // Repeat the above data 13 more times
-    // (You can add or adjust more entries as needed)
-    // Duplicate the above data or modify values as needed for a total of 20 entries
-    { rank: 8, address: "ZX9AB...WVUg8", percentage: 18, value: 6543210 },
-    { rank: 9, address: "RSTU1...456g9", percentage: 22, value: 5432109 },
-    { rank: 10, address: "7890C...DEFg10", percentage: 30, value: 4321098 },
-    { rank: 11, address: "XYZAB...678g11", percentage: 42, value: 3210987 },
-    { rank: 12, address: "LMN12...345g12", percentage: 55, value: 2109876 },
-    { rank: 13, address: "GHI23...012g13", percentage: 68, value: 1098765 },
-    { rank: 14, address: "PQR34...567g14", percentage: 73, value: 987654 },
-    { rank: 15, address: "JKL45...890g15", percentage: 80, value: 876543 },
-    { rank: 16, address: "MNO56...123g16", percentage: 88, value: 765432 },
-    { rank: 17, address: "45678...901g17", percentage: 95, value: 654321 },
-    { rank: 18, address: "UVW89...234g18", percentage: 98, value: 543210 },
-    { rank: 19, address: "DEF90...567g19", percentage: 99, value: 432109 },
-    { rank: 20, address: "12345...678g20", percentage: 100, value: 321098 },
-  ]);
-
   const filterHolders = (
     condition: (holder: any, index: number) => boolean
   ) => {
-    return holders.filter(condition);
+    return data.holders.filter(condition);
   };
 
   const filteredHolders = filterHolders((_, index) => {
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const startIndex = currentPage * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     return index >= startIndex && index < endIndex;
   });
 
   const mapHoldersToRows = () => {
-    return filteredHolders.map((holder) => (
-      <tr key={holder.rank}>
-        <td className="text-left p-4">{holder.rank}</td>
-        <td className="text-left p-4">{holder.address}</td>
-        <td className="text-left p-4">
-          <StyledLineBar variant="determinate" value={holder.percentage} />
+    return filteredHolders.map((holder, index) => (
+      <tr key={holder.index}>
+        <td className="text-left p-2">{index + 1}</td>
+        <td className="text-left p-2">{holder.address}</td>
+        <td className="text-left p-2 flex flex-col">
+          <span className="mb-1">
+            {numeral((holder.balance / data.mint) * 100)
+              .divide(100)
+              .format("0.00%")}
+          </span>
+          <StyledLineBar
+            variant="determinate"
+            value={(holder.balance / data.mint) * 100}
+          />
         </td>
-        <td className="text-left">{holder.value}</td>
+        <td className="text-left p-2">{holder.balance}</td>
       </tr>
     ));
   };
@@ -143,56 +162,61 @@ function Detail() {
   return (
     <div>
       <span className="m-0 font-sans text-5xl leading-tight text-yellow-400 font-bold">
-        nano
+        {data?.token_name}
       </span>
       <div>
-        <StyledProgressBar variant="determinate" value={100} />
+        <StyledProgressBar
+          variant="determinate"
+          value={(data.mint * 100) / data.total_supply || 0}
+        />
       </div>
       <span className="text-yellow-400 text-lg">
-        Indexer progress: 2023/12/29 15:36:25
+        Indexer progress: {data.timestamp}
       </span>
       <div style={containerStyles}>
         <span className="text-gray-400">Inscription:</span>
         <br />
         <a
           className="m-10 text-blue-500 underline"
-          href="2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631"
+          href={`https://optimistic.etherscan.io/tx/${data.inscription}`}
         >
-          2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631
+          {data.inscription}
         </a>
         <br />
         <span className="text-gray-400 mt-10">Total Supply:</span>
         <br />
-        <span className="m-10">2,100,000,000</span>
+        <span className="m-10">{data.total_supply}</span>
         <br />
         <span className="text-gray-400 mt-10">Minted:</span>
         <br />
-        <span className="m-10">2,100,000,000</span>
+        <span className="m-10">{data.mint}</span>
         <br />
         <span className="text-gray-400 mt-10">Limit per mint:</span>
         <br />
-        <span className="m-10">100</span>
+        <span className="m-10">{data.meta?.lim}</span>
         <br />
         <span className="text-gray-400 mt-10">Deploy By:</span>
         <br />
         <a
           className="m-10 text-blue-500 underline"
-          href="2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631"
+          href={`https://optimistic.etherscan.io/address/${data.creator}`}
         >
-          2029DAB6E0FE0F610159C6F89969301A74BE3240340A400C20672DF5D1F32631
+          {data.creator}
         </a>
         <br />
         <span className="text-gray-400 mt-10">Deploy Time:</span>
         <br />
-        <span className="m-10">2023/11/30 21:29:26</span>
+        <span className="m-10">{data.timestamp}</span>
         <br />
         <span className="text-gray-400 mt-10">Holders:</span>
         <br />
-        <span className="m-10">28,059</span>
+        <span className="m-10">
+          {numeral(data.holders.length).format("0,0")}
+        </span>
         <br />
         <span className="text-gray-400 mt-10">Minters:</span>
         <br />
-        <span className="m-10">36,632</span>
+        <span className="m-10">{numeral(data.minters).format("0,0")}</span>
       </div>
       <div style={tables}>
         <button className="bg-gray-700 p-3 rounded-md border border-solid border-gray-500">
@@ -215,7 +239,7 @@ function Detail() {
             <MarketPlacePagination
               variant="outlined"
               shape="rounded"
-              count={Math.ceil(holders.length / ITEMS_PER_PAGE)}
+              count={Math.ceil(data.holders.length / ITEMS_PER_PAGE)}
               page={currentPage}
               onChange={handlePageChange}
             />
